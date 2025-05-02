@@ -3,7 +3,7 @@ import { validateEvidence } from '../services/geminiService';
 import CampaignEvidence from '../models/CampaignEvidence';
 
 const worker = new Worker('evidenceValidation', async (job) => {
-  const { evidenceId } = job;
+  const { evidenceId } = job.data;
   
   try {
     const evidence = await CampaignEvidence.findById(evidenceId);
